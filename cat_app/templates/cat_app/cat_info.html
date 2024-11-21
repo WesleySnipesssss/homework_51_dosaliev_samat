@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ваш кот</title>
+</head>
+<body>
+    <h1>Информация о коте</h1>
+    <p><strong>Имя:</strong> {{ cat.name }}</p>
+    <p><strong>Возраст:</strong> {{ cat.age }}</p>
+    <p><strong>Сытость:</strong> {{ cat.satiety }}</p>
+    <p><strong>Счастье:</strong> {{ cat.happiness }}</p>
+    <p><strong>Состояние:</strong> {% if cat.sleeping %}Спит{% else %}Не спит{% endif %}</p>
+    <img src="{{ cat.get_image|default:'/static/images/neutral_cat.jpeg' }}" alt="Кот">
+    <h2>Взаимодействие с котом</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Взаимодействовать</button>
+    </form>
+</body>
+</html>

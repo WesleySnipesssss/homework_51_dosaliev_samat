@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добро пожаловать!</title>
+</head>
+<body>
+    <h1>Задайте имя вашему коту</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Создать кота</button>
+    </form>
+</body>
+</html>
